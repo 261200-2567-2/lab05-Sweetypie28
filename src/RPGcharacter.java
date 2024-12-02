@@ -7,19 +7,23 @@ public class RPGcharacter implements Character {
     public int Def;
     public int level;
 
-public RPGcharacter(String name, int HP, int mana,int runSpeed, int Atk, int Def ) {
-    this.name = name;
-    this.HP = HP;
-    this.mana = mana;
-    this.runSpeed = runSpeed;
-    this.Atk = Atk;
-    this.Def = Def;
-    this.level = 1;
-}
+    int wandHP = 0;
+    int wingSpeed = 0;
+
+    public RPGcharacter(String name, int HP, int mana, int runSpeed, int Atk, int Def) {
+        this.name = name;
+        this.HP = HP;
+        this.mana = mana;
+        this.runSpeed = runSpeed;
+        this.Atk = Atk;
+        this.Def = Def;
+        this.level = 1;
+    }
 
     @Override
     public void ShowStats() {
-        System.out.println("Name: " + name + " | HP: " + HP +" | Mana: " + mana +" | Run Speed: " + runSpeed +" | Attack: " + Atk +" | Defense: " + Def);
+        System.out.println("Name: " + name + " | HP: " + HP + " | Mana: " + mana + " | Run Speed: " + runSpeed
+                + " | Attack: " + Atk + " | Defense: " + Def);
     }
 
     @Override
@@ -31,7 +35,16 @@ public RPGcharacter(String name, int HP, int mana,int runSpeed, int Atk, int Def
     }
 
     @Override
-    public void equip(accessorie Accessories){
-        runSpeed -= Accessories.weight;
+    public void equip(Accessories accessories) {
+        if(accessories instanceof Wing){
+            HP -= wandHP;
+            wandHP = accessories.value;
+            HP += wandHP;
+        }
+        if(accessories instanceof Wand){
+            runSpeed -= wingSpeed;
+            wingSpeed = accessories.value;
+            runSpeed += wingSpeed;
+        }
     }
 }

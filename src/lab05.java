@@ -1,10 +1,10 @@
 public class lab05 {
     public static void main(String[] args) {
-        mage x = new mage("namkhaw");
-        healer y = new healer("Pam");
+        mage x = new mage("Pam");
+        healer y = new healer("Namkhaw");
 
-        wing w = new wing("wing");
-        wand z = new wand("wand");
+        Wing wing = new Wing("Wing", 1, 2);
+        Wand wand = new Wand("Wand", 1, 2);
 
         x.ShowStats();
         y.ShowStats();
@@ -12,13 +12,16 @@ public class lab05 {
         x.LevelUp();
         y.LevelUp();
 
-        x.equip(w);
-        x.equip(z);
+        x.equip(wing);
+        x.equip(wand);
 
         x.ShowStats();
         y.ShowStats();
 
-        while(x.)y.Attack(x);
-
+        x.Attack(y);
+        while(y.HP > 0){
+            x.Attack(y);
+        }
+        y.ShowStats();
     }
 }

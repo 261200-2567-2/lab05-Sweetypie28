@@ -12,4 +12,3 @@ public class healer extends ATKChar {
         System.out.println(name + " is healing");
     }
 }
-

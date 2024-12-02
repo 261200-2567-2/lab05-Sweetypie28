@@ -16,4 +16,4 @@ public class mage extends ATKChar {
         }
         System.out.println(name + " spelling: " + target.name);
     }
-}
+    }
